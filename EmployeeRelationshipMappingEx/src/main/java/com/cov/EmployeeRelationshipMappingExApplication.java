@@ -12,6 +12,8 @@ import com.cov.beans.Employee;
 import com.cov.service.DepartmentService;
 import com.cov.service.EmployeeService;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 @SpringBootApplication
 public class EmployeeRelationshipMappingExApplication {
 
@@ -33,8 +35,11 @@ public class EmployeeRelationshipMappingExApplication {
 	employees1.add(employee1);
 	employees1.add(employee2);
 	
+	
+	
 	employees2.add(employee3);
 	employees2.add(employee4);
+
 	
 	
 	

@@ -17,6 +17,8 @@ public class InvalidDepartmentIdException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
 	public InvalidDepartmentIdException(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
