@@ -1,5 +1,6 @@
 package com.cov.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,15 +17,15 @@ import javax.persistence.OneToMany;
 public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	String deptid;
+	int id;
 	
 	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
-    public List<Employee> employees;
+    public List<Employee> employees = new ArrayList<>();
 
-	public Department(String deptid) {
+	public Department(int id) {
 		super();
-		this.deptid = deptid;
+		this.id = id;
 		
 	}
 
@@ -33,17 +34,17 @@ public class Department {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getDeptid() {
-		return deptid;
+	public int getId() {
+		return id;
 	}
 
-	public void setDeptid(String deptid) {
-		this.deptid = deptid;
+	public void setId(int id) {
+		this.id =id;
 	}
 
 	@Override
 	public String toString() {
-		return "Department [deptid=" + deptid + "]";
+		return "Department [id=" + id +"]";
 	}
 	
 	

@@ -32,7 +32,7 @@ package com.cov.service;
 			return empOptional.get();
 		}
 
-		public Employee save(Employee employee) throws InvalidEmployeeIdException {
+		public Employee save(Employee employee){
 			return employeeRepository.save(employee);
 		}
 

@@ -14,17 +14,17 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	String name;
-	int deptno;
+	
 	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	@JoinColumn(name = "deptid", nullable = false)
-    private Department department;
+	//@JoinColumn(name = "id", nullable = false)
+    Department department;
 	
-	public Employee(int id, String name, int deptno, Department department) {
+	public Employee(int id, String name, Department department) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.deptno = deptno;
+		
 		this.department = department;
 	}
 	
@@ -44,17 +44,21 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getDeptno() {
-		return deptno;
-	}
-	public void setDeptno(int deptno) {
-		this.deptno = deptno;
-	}
 	
 	
+	
+	
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", deptno=" + deptno + "]";
+		return "Employee [id=" + id + ", name=" + name +", department="+department+ "]";
 	}
 	
 

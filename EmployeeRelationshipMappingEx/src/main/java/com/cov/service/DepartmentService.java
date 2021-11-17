@@ -19,10 +19,10 @@ public class DepartmentService {
 		// return employee;
 	}
 
-	public Department findById(String deptid) throws InvalidDepartmentIdException {
-		Optional<Department> deptOptional = departmentRepository.findById(deptid);
+	public Department findById(int id) throws InvalidDepartmentIdException {
+		Optional<Department> deptOptional = departmentRepository.findById(id);
 		if (!deptOptional.isPresent()) {
-			throw new InvalidDepartmentIdException("Department Id " + deptid + " not existing in repository");
+			throw new InvalidDepartmentIdException("Department Id " + id + " not existing in repository");
 		}
 		return deptOptional.get();
 	}
@@ -32,18 +32,18 @@ public class DepartmentService {
 	}
 
 	public Department update(Department department) throws InvalidDepartmentIdException {
-		Optional<Department> deptOptional = departmentRepository.findById(department.getDeptid());
+		Optional<Department> deptOptional = departmentRepository.findById(department.getId());
 		if (!deptOptional.isPresent()) {
 			throw new InvalidDepartmentIdException(
-					"Department Id" + department.getDeptid() + "not existing in reposiotory");
+					"Department Id" + department.getId() + "not existing in reposiotory");
 		}
 		return departmentRepository.save(department);
 	}
 
-	public Department delete(String deptid) throws InvalidDepartmentIdException {
-		Optional<Department> deptOptional = departmentRepository.findById(deptid);
+	public Department delete(String id) throws InvalidDepartmentIdException {
+		Optional<Department> deptOptional = departmentRepository.findById(id);
 		if (!deptOptional.isPresent()) {
-			throw new InvalidDepartmentIdException("Department Id " + deptid + "not existing in repository");
+			throw new InvalidDepartmentIdException("Department Id " + id + "not existing in repository");
 		}
 		Department department = deptOptional.get();
 		return department;
