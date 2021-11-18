@@ -20,13 +20,20 @@ public class EmployeeRelationshipMappingExApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctxt =SpringApplication.run(EmployeeRelationshipMappingExApplication.class, args);
 	
-	Department department1 = new Department(1);
-	Department department2 = new Department(2);
+	Department department1 = new Department(1,"Sales");
+	Department department2 = new Department(2,"Production");
+	Department department3 = new Department(3,"Marketing");
+	Department department4 = new Department(4,"Human Resources");
+	
 	
 	Employee employee1 = new Employee(101,"Akhila",department1);
 	Employee employee2 = new Employee(102,"Nicky",department1);
 	Employee employee3 = new Employee(103,"Golu",department2);
 	Employee employee4 = new Employee(104,"sravs",department2);
+	Employee employee5 = new Employee(105,"Preeti",department3);
+	Employee employee6 = new Employee(106,"Giri",department3);
+	Employee employee7 = new Employee(107,"Sneha",department4);
+	Employee employee8 = new Employee(108,"Ramu",department4);
 	
 	
 	List<Employee> employees1= new ArrayList<>();
@@ -34,11 +41,15 @@ public class EmployeeRelationshipMappingExApplication {
 	
 	employees1.add(employee1);
 	employees1.add(employee2);
+	employees1.add(employee3);
+	employees1.add(employee4);
 	
 	
 	
-	employees2.add(employee3);
-	employees2.add(employee4);
+	employees2.add(employee5);
+	employees2.add(employee6);
+	employees2.add(employee7);
+	employees2.add(employee8);
 
 	
 	
@@ -48,11 +59,18 @@ public class EmployeeRelationshipMappingExApplication {
 	
 	departmentService.save(department1);
 	departmentService.save(department2);
+	departmentService.save(department3);
+	departmentService.save(department4);
 	
 	employeeService.save(employee1);
 	employeeService.save(employee2);
 	employeeService.save(employee3);
 	employeeService.save(employee4);
+	employeeService.save(employee5);
+	employeeService.save(employee6);
+	employeeService.save(employee7);
+	employeeService.save(employee8);
+	
 	
 		
 	}

@@ -18,14 +18,15 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
-	
+	String name;
 	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     public List<Employee> employees = new ArrayList<>();
 
-	public Department(int id) {
+	public Department(int id, String name) {
 		super();
 		this.id = id;
+		this.name=name;
 		
 		
 		
@@ -44,9 +45,17 @@ public class Department {
 		this.id =id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
-		return "Department [id=" + id +"]";
+		return "Department [id=" + id +"name=" + name+ "]";
 	}
 	
 	
