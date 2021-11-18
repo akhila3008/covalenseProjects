@@ -15,10 +15,9 @@ public class Employee {
 	int id;
 	String name;
 	
-	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	//@JoinColumn(name = "id", nullable = false)
-    Department department;
+	//@JoinColumn(name = "dept_id", nullable = false)
+     private Department department;
 	
 	public Employee(int id, String name, Department department) {
 		super();
@@ -44,10 +43,7 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
+		
 	public Department getDepartment() {
 		return department;
 	}
@@ -58,10 +54,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name +", department="+department+ "]";
+		return "Employee [id=" + id + ", name=" + name +", department=" + department + "]";
 	}
 	
-	
-	
-
 }

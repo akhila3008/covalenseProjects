@@ -9,5 +9,10 @@
 <body>
 <h2>Welcome to Employee Management System</h2>
 
+<a href = "getEmps">Employees List</a><br><br>
+<a href = "regEmp">Register Employee</a><br><br>
+<a href = "newDept">New Department</a><br><br>
+<a href = "getDepts">Departments List</a><br><br>
+
 </body>
 </html>

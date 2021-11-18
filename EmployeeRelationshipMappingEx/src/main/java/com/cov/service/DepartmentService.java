@@ -42,7 +42,7 @@ public class DepartmentService {
 		return departmentRepository.save(department);
 	}
 
-	public Department delete(String id) throws InvalidDepartmentIdException {
+	public Department delete(int id) throws InvalidDepartmentIdException {
 		Optional<Department> deptOptional = departmentRepository.findById(id);
 		if (!deptOptional.isPresent()) {
 			throw new InvalidDepartmentIdException("Department Id " + id + "not existing in repository");

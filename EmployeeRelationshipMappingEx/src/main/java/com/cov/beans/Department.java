@@ -11,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 public class Department {
 	@Id
@@ -27,9 +25,7 @@ public class Department {
 		super();
 		this.id = id;
 		this.name=name;
-		
-		
-		
+						
 	}
 
 	public Department() {
@@ -58,6 +54,4 @@ public class Department {
 		return "Department [id=" + id +"name=" + name+ "]";
 	}
 	
-	
-
 }

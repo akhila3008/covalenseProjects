@@ -12,8 +12,6 @@ import com.cov.beans.Employee;
 import com.cov.service.DepartmentService;
 import com.cov.service.EmployeeService;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 @SpringBootApplication
 public class EmployeeRelationshipMappingExApplication {
 
@@ -22,18 +20,18 @@ public class EmployeeRelationshipMappingExApplication {
 	
 	Department department1 = new Department(1,"Sales");
 	Department department2 = new Department(2,"Production");
-	Department department3 = new Department(3,"Marketing");
+	Department department3 = new Department(3,"Administration");
 	Department department4 = new Department(4,"Human Resources");
 	
 	
 	Employee employee1 = new Employee(101,"Akhila",department1);
-	Employee employee2 = new Employee(102,"Nicky",department1);
-	Employee employee3 = new Employee(103,"Golu",department2);
-	Employee employee4 = new Employee(104,"sravs",department2);
-	Employee employee5 = new Employee(105,"Preeti",department3);
-	Employee employee6 = new Employee(106,"Giri",department3);
-	Employee employee7 = new Employee(107,"Sneha",department4);
-	Employee employee8 = new Employee(108,"Ramu",department4);
+	Employee employee2 = new Employee(102,"Preeti",department1);
+	Employee employee3 = new Employee(103,"Hasini",department2);
+	Employee employee4 = new Employee(104,"Sneha",department2);
+	Employee employee5 = new Employee(105,"Niharika",department3);
+	Employee employee6 = new Employee(106,"Manasa",department3);
+	Employee employee7 = new Employee(107,"Sreeshma",department4);
+	Employee employee8 = new Employee(108,"Nikhitha",department4);
 	
 	
 	List<Employee> employees1= new ArrayList<>();
