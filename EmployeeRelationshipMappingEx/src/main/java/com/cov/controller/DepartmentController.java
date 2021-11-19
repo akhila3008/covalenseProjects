@@ -38,14 +38,14 @@ public class DepartmentController {
 
 	@RequestMapping("getDepts")
 	public ModelAndView findAll() {
-		ModelAndView modelandview = new ModelAndView("showDepartments", "depts", departmentService.findAll());
+		ModelAndView modelandview = new ModelAndView("employeeList", "department", departmentService.findAll());
 		return modelandview;
 	}
 
 	@RequestMapping(value = "editDept", method = RequestMethod.GET)
 	public ModelAndView editDept(@RequestParam int id) throws InvalidDepartmentIdException {
 		Department deptToEdit = departmentService.findById(id);
-		ModelAndView modelandview = new ModelAndView("showEditdept", "deptToEdit", deptToEdit);
+		ModelAndView modelandview = new ModelAndView("showEditDept", "deptToEdit", deptToEdit);
 		return modelandview;
 	}
 
@@ -59,7 +59,7 @@ public class DepartmentController {
 
 	}
 
-	@RequestMapping(value = "deleteDept")
+	@RequestMapping(value = "deleteDept",method = RequestMethod.POST )
 	public ModelAndView deleteEmp(@RequestParam int id) throws InvalidDepartmentIdException {
 		departmentService.delete(id);
 		ModelAndView modelandview = new ModelAndView("redirect:" + "getDepts");

@@ -8,7 +8,8 @@ package com.cov.service;
 	import org.springframework.stereotype.Service;
 
 	import com.cov.beans.Employee;
-	import com.cov.exception.InvalidEmployeeIdException;
+import com.cov.exception.InvalidDepartmentIdException;
+import com.cov.exception.InvalidEmployeeIdException;
 	import com.cov.repository.EmployeeRepository;
 
 	@Service
@@ -53,6 +54,18 @@ package com.cov.service;
 			Employee employee = empOptional.get();
 			employeeRepository.deleteById(id);
 			return employee;
+		}
+		
+		public List<Employee> findAllByDeptno(int deptno) throws InvalidDepartmentIdException
+		{
+		List<Employee> employees =employeeRepository.findAllEmployeeByDeptno(deptno);
+		if(employees.isEmpty())
+		{
+		throw new InvalidDepartmentIdException("Department Id " + deptno + "not existing in repository");
+		}
+
+		return employees;
+
 		}
 
 		

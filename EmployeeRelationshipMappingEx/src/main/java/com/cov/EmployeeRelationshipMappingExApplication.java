@@ -16,7 +16,8 @@ import com.cov.service.EmployeeService;
 public class EmployeeRelationshipMappingExApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctxt =SpringApplication.run(EmployeeRelationshipMappingExApplication.class, args);
+		ConfigurableApplicationContext ctxt =
+				SpringApplication.run(EmployeeRelationshipMappingExApplication.class, args);
 	
 	Department department1 = new Department(1,"Sales");
 	Department department2 = new Department(2,"Production");
@@ -66,11 +67,11 @@ public class EmployeeRelationshipMappingExApplication {
 	employeeService.save(employee4);
 	employeeService.save(employee5);
 	employeeService.save(employee6);
-	employeeService.save(employee7);
+    employeeService.save(employee7);
 	employeeService.save(employee8);
 	
 	
 		
-	}
+ }
 
 }

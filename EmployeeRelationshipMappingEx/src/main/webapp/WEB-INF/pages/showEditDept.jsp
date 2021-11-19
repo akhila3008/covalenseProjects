@@ -10,7 +10,7 @@
 <body>
 	<h2>update employee details</h2>
 	
-	<form:form action="updateDept" modelAttribute="deptToEdit">
+	<form:form action="updateDept" method="post" modelAttribute="deptToEdit">
 	<table>
 	<tr>
 		<form:label path="id">ID</form:label>

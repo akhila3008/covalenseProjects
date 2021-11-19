@@ -25,9 +25,21 @@
 				<br>
 				<br>
 				<br>
-				<form:label path="department">Department</form:label>
-				<form:input path="department" readonly="true" />
-				<form:input path="department.name" readonly="true" />
+				
+				
+				<form:label path="department">Choose a Department</form:label>
+		<form:select path="department">
+			<form:option value="0">--Select--</form:option>
+			<%
+			DepartmentService departmentService = (DepartmentService) request.getAttribute("departmentService");
+			List<Department> departments = departmentService.findAll();
+			for (Department department : departments) {
+			%>
+			<form:option value="<%= department %>"><%=department.getName()%></form:option>
+			<%
+			}
+			%>
+		</form:select>
 				<br>
 				<br>
 				<input type="submit" value="Update" />

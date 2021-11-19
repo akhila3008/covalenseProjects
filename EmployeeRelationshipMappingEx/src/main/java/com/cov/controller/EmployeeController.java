@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cov.beans.Department;
 import com.cov.beans.Employee;
+import com.cov.exception.InvalidDepartmentIdException;
 import com.cov.exception.InvalidEmployeeIdException;
 import com.cov.service.DepartmentService;
 import com.cov.service.EmployeeService;
@@ -43,8 +45,13 @@ public class EmployeeController {
 	@RequestMapping(value="getEmps",method = RequestMethod.GET)
 	public ModelAndView findAll()  throws InvalidEmployeeIdException {
 		ModelAndView modelandview = new ModelAndView("employeeList");
-		List<Employee> emps = employeeService.findAll();
-		modelandview.addObject("emps", emps);
+		List<Employee> employees = employeeService.findAll();
+		List<Department> departments = departmentService.findAll();
+		modelandview.addObject("employee", employees);
+		modelandview.addObject("departments",departments);
+		modelandview.addObject("departmentService",departmentService);
+		modelandview.addObject("department",new Department());
+		modelandview.addObject("employeeService", employeeService);
 		return modelandview;
 	}
 	
@@ -67,9 +74,22 @@ public class EmployeeController {
 
 	@RequestMapping(value= "deleteEmp")
 	public ModelAndView deleteEmp(@RequestParam int id) throws InvalidEmployeeIdException {
-		ModelAndView modelandview = new ModelAndView("redirect:"+"getEmps");
 		employeeService.delete(id);
+		ModelAndView modelandview = new ModelAndView("redirect:"+"getEmps");
+		
 		return modelandview;
+	}
+	
+	@RequestMapping(value="getAllEmp",method = RequestMethod.POST)
+	public ModelAndView findAllEmployeeByDept(@RequestParam int deptid) throws InvalidDepartmentIdException {
+
+	ModelAndView modelAndView=new ModelAndView("showEmployeeByDept");
+	modelAndView.addObject("departmentService", departmentService);
+	List<Employee> employees=employeeService.findAllByDeptno(deptid);
+	modelAndView.addObject("employees",employees);
+
+	return modelAndView;
+
 	}
 
 }
